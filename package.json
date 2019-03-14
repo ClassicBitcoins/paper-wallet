@@ -1,6 +1,6 @@
 {
-  "name": "paperwallet.btcprivate.org",
-  "homepage": "https://paperwallet.btcprivate.org",
+  "name": "paperwallet.classicbitcoin.info",
+  "homepage": "https://paperwallet.classicbitcoin.info",
   "version": "0.0.2",
   "private": true,
   "dependencies": {
@@ -9,7 +9,7 @@
     "babel-eslint": "^8.2.2",
     "bip39": "bitcoinjs/bip39",
     "bitcoinjs-lib": "ch4ot1c/bitcoinjs-lib#v3.3.2-z",
-    "btcprivatejs": "BTCPrivate/btcprivatejs",
+    "cbitcoinjs": "ClassicBitcoins/cbitcoinjs",
     "eslint": "^4.18.2",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.3",
