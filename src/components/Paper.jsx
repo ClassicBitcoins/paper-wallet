@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import { QRCode }           from 'react-qr-svg';
-import btcprivatejs         from 'btcprivatejs';
+import cbitcoinjs         from 'cbitcoinjs';
 
 import art1 from '../zen_paper_front.png';
 import art2 from '../zen_paper_back.png';
@@ -18,11 +18,11 @@ class Paper extends Component {
     }
 
     genAddress() {
-        const priv      = btcprivatejs.address
+        const priv      = cbitcoinjs.address
             .mkPrivKey(this.props.entropy + new Date().getTime());
-        const privWIF   = btcprivatejs.address.privKeyToWIF(priv, true);
-        const pubKey    = btcprivatejs.address.privKeyToPubKey(priv, true);
-        const znAddr    = btcprivatejs.address.pubKeyToAddr(pubKey);
+        const privWIF   = cbitcoinjs.address.privKeyToWIF(priv, true);
+        const pubKey    = cbitcoinjs.address.privKeyToPubKey(priv, true);
+        const znAddr    = cbitcoinjs.address.pubKeyToAddr(pubKey);
 
         this.setState({
             priv: priv,
@@ -112,7 +112,7 @@ class Paper extends Component {
                 <Row className="r3">
                     <Col>
                         <p>
-                          <b>A Paper Wallet</b> is a piece of paper containing a public address and a private key. It allows you to store Bitcoin Private (BTCP) offline.
+                          <b>A Paper Wallet</b> is a piece of paper containing a public address and a private key. It allows you to store Classic Bitcoin (CBTC) offline.
                         </p>
                         <p>
                           These kind of wallets are vulnerable to loss and theft. You should keep it safe like jewels or cash. Therefore it is recommended either to have a backup or to generate it only for temporary use.

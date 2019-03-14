@@ -79,7 +79,7 @@ class HD extends Component {
                       <div className="xpub">
                           {this.state.xpub}
                       </div>
-                      <h5>xpub/xprv derived at BIP44 for BTCP, account 0 (m/44'/183'/0')</h5>
+                      <h5>xpub/xprv derived at BIP44 for CBTC, account 0 (m/44'/183'/0')</h5>
                       <div className="derivedXprv">
                           {this.state.derivedXprv}
                       </div>
@@ -98,24 +98,24 @@ class HD extends Component {
                     <Col>
                         <div>
                         <p>
-                            <b>A Bitcoin Private HD Wallet</b> is a mnemonic phrase of English words. These are determined by your initial mouse movements, and result in a seed for chains of wallets/addresses. These allow for chains selected by 'derivation path' (bip32/bip44), whose keys start with 'xprv'. You can also export a corresponding, view/'generate'-only 'xpub'. Your mnemonic seed words, or your master 'xprv' key, or your derived 'xprv' key will allow you to unlock, manage, and spend those corresponding funds - <b>keep it safe</b>.
+                            <b>A Classic Bitcoin HD Wallet</b> is a mnemonic phrase of English words. These are determined by your initial mouse movements, and result in a seed for chains of wallets/addresses. These allow for chains selected by 'derivation path' (bip32/bip44), whose keys start with 'xprv'. You can also export a corresponding, view/'generate'-only 'xpub'. Your mnemonic seed words, or your master 'xprv' key, or your derived 'xprv' key will allow you to unlock, manage, and spend those corresponding funds - <b>keep it safe</b>.
                         </p>
                         <p>
-                            <b>**To safeguard this wallet**</b> you must print or otherwise record the address and private key. It is important to make a backup copy of the private key and store it in a safe location. This site does not have knowledge of your private key. If you leave/refresh the site or press the "Generate New Address" button then a new private key will be generated and the previously displayed private key will be forever lost. Your private key should be kept a secret. Whomever you share the private key with has access to spend all the BTCP associated with that address. If you print your wallet then store it in a zip lock bag to keep it safe from water. Treat a paper wallet like cash.
+                            <b>**To safeguard this wallet**</b> you must print or otherwise record the address and private key. It is important to make a backup copy of the private key and store it in a safe location. This site does not have knowledge of your private key. If you leave/refresh the site or press the "Generate New Address" button then a new private key will be generated and the previously displayed private key will be forever lost. Your private key should be kept a secret. Whomever you share the private key with has access to spend all the CBTC associated with that address. If you print your wallet then store it in a zip lock bag to keep it safe from water. Treat a paper wallet like cash.
                         </p>
                         <br/>
                         <p>
-                            <b>Add funds</b> to this wallet by instructing others to send BTCP to your BTCP address.
+                            <b>Add funds</b> to this wallet by instructing others to send CBTC to your CBTC address.
                         </p>
                         <p>
-                            <b>Check your balance</b> by entering your BTCP address on one of these explorers:
+                            <b>Check your balance</b> by entering your CBTC address on one of these explorers:
                         </p>
                         <ul style={{listStyleType: 'none'}}>
-                            <li><a href="https://explorer.btcprivate.org/" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'underline'}}>https://explorer.btcprivate.org</a></li>
+                            <li><a href="https://explorer.classicbitcoin.info/" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'underline'}}>https://explorer.classicbitcoin.info</a></li>
                         </ul>
                         <br/>
                         <p>
-                            <b>To spend your BTCP,</b> you can download a wallet from <a href='https://btcprivate.org' target="_blank" rel="noopener noreferrer">Bitcoin Private</a> and import your private key to the p2p client wallet. It is <b>**strongly discouraged**</b> to spend directly from this address without importing the private key into a wallet application, since certain precautions need to be taken so you receive your change!
+                            <b>To spend your CBTC,</b> you can download a wallet from <a href='https://classicbitcoin.info' target="_blank" rel="noopener noreferrer">Classic Bitcoin</a> and import your private key to the p2p client wallet. It is <b>**strongly discouraged**</b> to spend directly from this address without importing the private key into a wallet application, since certain precautions need to be taken so you receive your change!
                         </p>
                         </div>
                     </Col>

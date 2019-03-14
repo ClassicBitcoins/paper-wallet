@@ -14,8 +14,8 @@ export default class Header extends Component {
                     </Navbar.Brand>
                 </Navbar.Header>
                 <Nav pullRight>
-                    <NavItem href="https://github.com/BTCPrivate/paper-wallet" className="nav-item headerLeftOption">SOURCE</NavItem>
-                    <NavItem href="https://explorer.btcprivate.org/" className="nav-item headerLeftOption">EXPLORER</NavItem>
+                    <NavItem href="https://github.com/ClassicBitcoins/paper-wallet" className="nav-item headerLeftOption">SOURCE</NavItem>
+                    <NavItem href="https://explorer.classicbitcoin.info/" className="nav-item headerLeftOption">EXPLORER</NavItem>
                 </Nav>
             </Navbar>
         );

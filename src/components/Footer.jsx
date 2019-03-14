@@ -14,12 +14,12 @@ export default class Footer extends Component {
                     <Col xs={12} className="footerSocialWrap">
                         <ul className="footerSocial">
                             <li>
-                                <a href="https://btcprivate.org/">
+                                <a href="https://classicbitcoin.info/">
                                     <img src={website} alt="website"/>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/bitcoinprivate">
+                                <a href="https://twitter.com/bitclassic2">
                                     <img src={twitter} alt="twitter"/>
                                 </a>
                             </li>
@@ -36,7 +36,7 @@ export default class Footer extends Component {
                 </p>
 
                 <p className="footerCopyright">
-                    <a href="https://github.com/GGCryptoh" target="_blank" rel="noopener noreferrer">JavaScript Client-Side Bitcoin Private Wallet Generator</a>
+                    <a href="https://github.com/GGCryptoh" target="_blank" rel="noopener noreferrer">JavaScript Client-Side Classic Bitcoin Wallet Generator</a>
                 </p>
                 </div>
             </Grid>

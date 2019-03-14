@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Button, FormGroup, ControlLabel, Radio, FormControl }
                             from 'react-bootstrap';
 import { QRCode }           from 'react-qr-svg';
-import btcprivatejs           from 'btcprivatejs';
+import cbitcoinjs           from 'cbitcoinjs';
 
 class Brain extends Component {
     constructor(props) {
@@ -30,13 +30,13 @@ class Brain extends Component {
         for(let i = 0 ; i < it ; i++) {
             if((i*100/it) % 10 === 0) console.log((i*100/it) + "%");
 
-            priv      = btcprivatejs.address.mkPrivKey(this.props.entropy + i);
+            priv      = cbitcoinjs.address.mkPrivKey(this.props.entropy + i);
 
-            pub    = btcprivatejs.address.privKeyToPubKey(priv);
-            addr    = btcprivatejs.address.pubKeyToAddr(pub);
+            pub    = cbitcoinjs.address.privKeyToPubKey(priv);
+            addr    = cbitcoinjs.address.pubKeyToAddr(pub);
 
-            c_pub    = btcprivatejs.address.privKeyToPubKey(priv, true);
-            c_addr    = btcprivatejs.address.pubKeyToAddr(c_pub);
+            c_pub    = cbitcoinjs.address.privKeyToPubKey(priv, true);
+            c_addr    = cbitcoinjs.address.pubKeyToAddr(c_pub);
 
             if (addr.search("zn" + word) !== -1
             ||  c_addr.search("zn" + word) !== -1) {
@@ -46,8 +46,8 @@ class Brain extends Component {
         }
         console.log("<------END");
 
-        wif     = btcprivatejs.address.privKeyToWIF(priv);
-        c_wif    = btcprivatejs.address.privKeyToWIF(priv, true);
+        wif     = cbitcoinjs.address.privKeyToWIF(priv);
+        c_wif    = cbitcoinjs.address.privKeyToWIF(priv, true);
         this.setState({
             priv: priv,
             wif: wif,
@@ -69,10 +69,10 @@ class Brain extends Component {
             if(Number.isInteger(it)) return this.vanity(words[1], it);
         }
 
-        const priv      = btcprivatejs.address.mkPrivKey(this.state.passphrase);
-        const privWIF   = btcprivatejs.address.privKeyToWIF(priv, true);
-        const pubKey    = btcprivatejs.address.privKeyToPubKey(priv, true);
-        const znAddr    = btcprivatejs.address.pubKeyToAddr(pubKey);
+        const priv      = cbitcoinjs.address.mkPrivKey(this.state.passphrase);
+        const privWIF   = cbitcoinjs.address.privKeyToWIF(priv, true);
+        const pubKey    = cbitcoinjs.address.privKeyToPubKey(priv, true);
+        const znAddr    = cbitcoinjs.address.pubKeyToAddr(pubKey);
 
         this.setState({
             priv: priv,
@@ -84,15 +84,15 @@ class Brain extends Component {
     genZAddress() {
         if(!this.state.passphrase) return;
 
-        const z_secretKey   = btcprivatejs.zaddress
+        const z_secretKey   = cbitcoinjs.zaddress
                                 .mkZSecretKey(this.state.passphrase);
-        const spendingKey   = btcprivatejs.zaddress
+        const spendingKey   = cbitcoinjs.zaddress
                                 .zSecretKeyToSpendingKey(z_secretKey);
-        const a_pk          = btcprivatejs.zaddress
+        const a_pk          = cbitcoinjs.zaddress
                                 .zSecretKeyToPayingKey(z_secretKey);
-        const pk_enc        = btcprivatejs.zaddress
+        const pk_enc        = cbitcoinjs.zaddress
                                 .zSecretKeyToTransmissionKey(z_secretKey);
-        const Zaddress      = btcprivatejs.zaddress.mkZAddress(a_pk, pk_enc);
+        const Zaddress      = cbitcoinjs.zaddress.mkZAddress(a_pk, pk_enc);
 
         this.setState({
             priv: z_secretKey,
@@ -164,7 +164,7 @@ class Brain extends Component {
                     <Row className="r2">
                         <Col md={3} className="max-width col-sm-offset-3">
                             <h1 style={{color:'green'}}>Public</h1>
-                            <h3>BTCP Address</h3>
+                            <h3>CBTC Address</h3>
                             <div>
                                 <QRCode
                                     bgColor="#FFFFFF"

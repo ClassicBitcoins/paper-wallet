@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Button, FormGroup, Radio, ControlLabel, FormControl }
                             from 'react-bootstrap';
 import { QRCode }           from 'react-qr-svg';
-import btcprivatejs            from 'btcprivatejs';
+import cbitcoinjs            from 'cbitcoinjs';
 
 
 class Details extends Component {
@@ -36,17 +36,17 @@ class Details extends Component {
             || this.state.input[0] === 'L'
             || this.state.input[0] === 'K') {
                 privWIF = this.state.input;
-                priv    = btcprivatejs.address.WIFToPrivKey(privWIF);
+                priv    = cbitcoinjs.address.WIFToPrivKey(privWIF);
             } else {
                 priv    = this.state.input;
-                privWIF = btcprivatejs.address.privKeyToWIF(priv, true);
+                privWIF = cbitcoinjs.address.privKeyToWIF(priv, true);
             }
         } catch(e) {
             return alert("Invalid Private Key");
         }
 
-        const pubKey    = btcprivatejs.address.privKeyToPubKey(priv, true);
-        const znAddr    = btcprivatejs.address.pubKeyToAddr(pubKey);
+        const pubKey    = cbitcoinjs.address.privKeyToPubKey(priv, true);
+        const znAddr    = cbitcoinjs.address.pubKeyToAddr(pubKey);
 
         this.setState({
             priv: priv,
@@ -66,17 +66,17 @@ class Details extends Component {
             if(!z_secretKey) throw(z_secretKey);
             if(z_secretKey[0] !== '0') throw(z_secretKey);
 
-            spendingKey = btcprivatejs.zaddress
+            spendingKey = cbitcoinjs.zaddress
                             .zSecretKeyToSpendingKey(z_secretKey);
-            a_pk        = btcprivatejs.zaddress
+            a_pk        = cbitcoinjs.zaddress
                             .zSecretKeyToPayingKey(z_secretKey);
-            pk_enc      = btcprivatejs.zaddress
+            pk_enc      = cbitcoinjs.zaddress
                             .zSecretKeyToTransmissionKey(z_secretKey);
         } catch(e) {
             return alert("Invalid Private Key");
         }
 
-        const Zaddress  = btcprivatejs.zaddress.mkZAddress(a_pk, pk_enc);
+        const Zaddress  = cbitcoinjs.zaddress.mkZAddress(a_pk, pk_enc);
 
         this.setState({
             priv: z_secretKey,
@@ -148,7 +148,7 @@ class Details extends Component {
                     <Row className="r2">
                         <Col xs={6} className="max-width">
                             <h1 style={{color:'green'}}>Public</h1>
-                            <h3>BTCP Address</h3>
+                            <h3>CBTC Address</h3>
                             <div>
                                 <QRCode
                                     bgColor="#FFFFFF"
@@ -191,10 +191,10 @@ class Details extends Component {
                 <Row className="r3">
                     <Col>
                         <p>
-                            Entering your private key here allows you to view your Bitcoin Private (BTCP) address and print your wallet if you wish.
+                            Entering your private key here allows you to view your Classic Bitcoin (CBTC) address and print your wallet if you wish.
                         </p>
                         <p>
-                            <b>Warning: make sure you are on paperwallet.btcprivate.org !</b>
+                            <b>Warning: make sure you are on paperwallet.classicbitcoin.info !</b>
                         </p>
                         <p>
                             Your private key is a sensitive element. Whomever knows it can manage your funds. If you enter your private key into some website, double-check the URL to avoid phishing attempts.

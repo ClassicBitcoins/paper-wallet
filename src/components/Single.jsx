@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Button, FormGroup, Radio }
                             from 'react-bootstrap';
 import { QRCode }           from 'react-qr-svg';
-import btcprivatejs         from 'btcprivatejs';
+import cbitcoinjs         from 'cbitcoinjs';
 
 class Single extends Component {
     constructor(props) {
@@ -16,10 +16,10 @@ class Single extends Component {
     }
 
     genTAddress() {
-        const priv      = btcprivatejs.address.mkPrivKey(this.props.entropy + new Date().getTime());
-        const privWIF   = btcprivatejs.address.privKeyToWIF(priv, true);
-        const pubKey    = btcprivatejs.address.privKeyToPubKey(priv, true);
-        const znAddr    = btcprivatejs.address.pubKeyToAddr(pubKey);
+        const priv      = cbitcoinjs.address.mkPrivKey(this.props.entropy + new Date().getTime());
+        const privWIF   = cbitcoinjs.address.privKeyToWIF(priv, true);
+        const pubKey    = cbitcoinjs.address.privKeyToPubKey(priv, true);
+        const znAddr    = cbitcoinjs.address.pubKeyToAddr(pubKey);
 
         this.setState({
             priv: priv,
@@ -29,15 +29,15 @@ class Single extends Component {
     }
 
     genZAddress() {
-        const z_secretKey   = btcprivatejs.zaddress
+        const z_secretKey   = cbitcoinjs.zaddress
                                 .mkZSecretKey(this.props.entropy + new Date().getTime());
-        const spendingKey   = btcprivatejs.zaddress
+        const spendingKey   = cbitcoinjs.zaddress
                                 .zSecretKeyToSpendingKey(z_secretKey);
-        const a_pk          = btcprivatejs.zaddress
+        const a_pk          = cbitcoinjs.zaddress
                                 .zSecretKeyToPayingKey(z_secretKey);
-        const pk_enc        = btcprivatejs.zaddress
+        const pk_enc        = cbitcoinjs.zaddress
                                 .zSecretKeyToTransmissionKey(z_secretKey);
-        const Zaddress      = btcprivatejs.zaddress.mkZAddress(a_pk, pk_enc);
+        const Zaddress      = cbitcoinjs.zaddress.mkZAddress(a_pk, pk_enc);
 
         this.setState({
             priv: z_secretKey,
@@ -99,7 +99,7 @@ class Single extends Component {
                     <Row className="r2">
                         <Col xs={3} className="max-width singleTabs col-xs-offset-3">
                             <h1 style={{color:'green'}}>Public</h1>
-                            <h3>BTCP Address</h3>
+                            <h3>CBTC Address</h3>
                             <div>
                                 <QRCode
                                     bgColor="#FFFFFF"
@@ -141,24 +141,24 @@ class Single extends Component {
                     <Col>
                         <div>
                         <p>
-                            <b>A Bitcoin Private Wallet</b> can be as simple as a single pairing of an address with its corresponding private key. You can share your address to receive BTCP payments, however your private key is what allows you to unlock, manage, and send your funds - <b>keep it safe</b>.
+                            <b>A Classic Bitcoin Wallet</b> can be as simple as a single pairing of an address with its corresponding private key. You can share your address to receive CBTC payments, however your private key is what allows you to unlock, manage, and send your funds - <b>keep it safe</b>.
                         </p>
                         <p>
-                            <b>**To safeguard this wallet**</b> you must print or otherwise record the address and private key. It is important to make a backup copy of the private key and store it in a safe location. This site does not have knowledge of your private key. If you leave/refresh the site or press the "Generate New Address" button then a new private key will be generated and the previously displayed private key will be forever lost. Your private key should be kept a secret. Whomever you share the private key with has access to spend all the BTCP associated with that address. If you print your wallet then store it in a zip lock bag to keep it safe from water. Treat a paper wallet like cash.
+                            <b>**To safeguard this wallet**</b> you must print or otherwise record the address and private key. It is important to make a backup copy of the private key and store it in a safe location. This site does not have knowledge of your private key. If you leave/refresh the site or press the "Generate New Address" button then a new private key will be generated and the previously displayed private key will be forever lost. Your private key should be kept a secret. Whomever you share the private key with has access to spend all the CBTC associated with that address. If you print your wallet then store it in a zip lock bag to keep it safe from water. Treat a paper wallet like cash.
                         </p>
                         <br/>
                         <p>
-                            <b>Add funds</b> to this wallet by instructing others to send BTCP to your BTCP address.
+                            <b>Add funds</b> to this wallet by instructing others to send CBTC to your CBTC address.
                         </p>
                         <p>
-                            <b>Check your balance</b> by entering your BTCP address on one of these explorers:
+                            <b>Check your balance</b> by entering your CBTC address on one of these explorers:
                         </p>
                         <ul style={{listStyleType: 'none'}}>
-                            <li><a href="https://explorer.btcprivate.org/" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'underline'}}>https://explorer.btcprivate.org</a></li>
+                            <li><a href="https://explorer.classicbitcoin.info/" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'underline'}}>https://explorer.classicbitcoin.info</a></li>
                         </ul>
                         <br/>
                         <p>
-                            <b>To spend your BTCP,</b> you can download a wallet from <a href='https://btcprivate.org' target="_blank" rel="noopener noreferrer">Bitcoin Private</a> and import your private key to the p2p client wallet. It is <b>**strongly discouraged**</b> to spend directly from this address without importing the private key into a wallet application, since certain precautions need to be taken so you receive your change!
+                            <b>To spend your CBTC,</b> you can download a wallet from <a href='https://classicbitcoin.info' target="_blank" rel="noopener noreferrer">Classic Bitcoin</a> and import your private key to the p2p client wallet. It is <b>**strongly discouraged**</b> to spend directly from this address without importing the private key into a wallet application, since certain precautions need to be taken so you receive your change!
                         </p>
                         </div>
                     </Col>

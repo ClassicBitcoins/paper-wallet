@@ -1,7 +1,7 @@
 import React, { Component }     from 'react';
 import { Row, Col, Button, FormGroup, ControlLabel, FormControl, Table, Radio }
                                 from 'react-bootstrap';
-import { address, zaddress }    from 'btcprivatejs';
+import { address, zaddress }    from 'cbitcoinjs';
 
 class Bulk extends Component {
     constructor(props) {
@@ -184,7 +184,7 @@ class Bulk extends Component {
                 <Row className="r3">
                     <Col>
                         <p>
-                            Generating several addresses at once can be useful for accepting BTCP payments on your website. You can import these addresses into your database and use a different address for each payment you receive. You can easily add more addresses into your database by choosing the correct start index to complete your list of addresses.
+                            Generating several addresses at once can be useful for accepting CBTC payments on your website. You can import these addresses into your database and use a different address for each payment you receive. You can easily add more addresses into your database by choosing the correct start index to complete your list of addresses.
                         </p>
                     </Col>
                 </Row>

@@ -1,9 +1,9 @@
-# Bitcoin Private Paper Wallet - paperwallet.btcprivate.org
+# Classic Bitcoin Paper Wallet - paperwallet.classicbitcoin.info
 
-### JavaScript Client-Side BTCP Paper Wallet Generator.
+### JavaScript Client-Side CBTC Paper Wallet Generator.
 ### v0.0.2
 
-Uses [btcprivatejs](https://github.com/BTCPrivate/btcprivatejs) based on [zenaddress](https://github.com/ZencashOfficial/zenaddress).
+Uses [cbitcoinjs](https://github.com/ClassicBitcoins/cbitcoinjs) based on [zenaddress](https://github.com/ZencashOfficial/zenaddress).
 
 Also uses [ch4ot1c/bitcoinjs-lib#v3.3.2-z](https://github.com/ch4ot1c/bitcoinjs-lib/releases/tag/v3.3.2-z) - for `hdnode` (HD Wallets) (BIP44, BIP39, BIP32)
 
@@ -11,7 +11,7 @@ Also uses [ch4ot1c/bitcoinjs-lib#v3.3.2-z](https://github.com/ch4ot1c/bitcoinjs-
 Supports:
 - Input entropy (Mouse + Keyboard)
 - Generating Single Private Key + Addresses
-- Generating BIP44 BTCP Wallets (from random BIP39 mnemonic seed words) (from input entropy)
+- Generating BIP44 CBTC Wallets (from random BIP39 mnemonic seed words) (from input entropy)
 - Creating multisig wallets (**needs further testing**)
 - 'Bulk Wallet' generation (Individual addresses; not using HD seeds)
 - Lookup Address by Private Key (**should be removed in deployed builds; web education anti-pattern**)
